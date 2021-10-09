@@ -34,7 +34,7 @@ public class UserService {
     	User user=getUser(login.getEmail()); 
     	if(user==null) return "User doesn't exist. Please signup first";
     	if(user.getPassword().equals(login.getPassword())) return "Login Successful";
-    	return "Password wrong";
+    	return "Password incorrect";
     }
     
     public String addUser(User user) {
@@ -44,7 +44,7 @@ public class UserService {
 
 	}
 
-	public void updateTopic(int id, User user) {
+	public void updateUser(User user) {
 		userRepository.save(user);
 
 	}
