@@ -1,13 +1,17 @@
 package com.examly.springapp.User;
 
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.annotation.processing.Generated;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class User {
     @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
     private String email;
     private String userName;
     private String role;
@@ -21,10 +25,23 @@ public class User {
 
     
 
-    public User(String email,String userName,String password,String phoneNumber)
+    public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public User(String email,String userName,String role,String password,String phoneNumber)
     {
         this.email=email;
         this.userName=userName;
+        this.role=role;
         this.password=password;
         this.phoneNumber=phoneNumber;
     }

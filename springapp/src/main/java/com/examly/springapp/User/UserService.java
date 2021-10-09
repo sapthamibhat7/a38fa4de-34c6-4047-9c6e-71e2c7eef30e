@@ -13,6 +13,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private LoginService loginService;
 
     public List<User> getAllUsers()
     {
@@ -24,22 +26,23 @@ public class UserService {
 
     public User getUser(String email)
     {
-        Optional<User> user=userRepository.findById(email);
+        Optional<User> user=userRepository.findByEmail(email);
         if(user.isPresent()) return user.get();
         return null;
     }
 
-    public String getUser(Login login)
+    public String getUserId(String email)
     {
-    	User user=getUser(login.getEmail()); 
-    	if(user==null) return "User doesn't exist. Please signup first";
-    	if(user.getPassword().equals(login.getPassword())) return "Login Successful";
-    	return "Password incorrect";
+    	User user=getUser(email); 
+    	if(user==null) return null;
+    	return user.getId();
     }
     
     public String addUser(User user) {
     	if(getUser(user.getEmail())!=null) return "User already exists";
 		userRepository.save(user);
+		Login login=new Login(user.getId(),user.getPassword());
+		loginService.addLogin(login);
 		return "User successfully registered";
 
 	}

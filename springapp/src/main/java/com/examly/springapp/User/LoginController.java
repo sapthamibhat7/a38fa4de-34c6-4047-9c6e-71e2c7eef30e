@@ -1,31 +1,21 @@
 package com.examly.springapp.User;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class UserController{
-	@Autowired
-    private UserService userService;
-
+public class LoginController {
 	
-	@GetMapping("/users")
-	public List<User> getAll()
+	@Autowired
+	private LoginService loginService;
+	
+	@PostMapping("/login")
+	public boolean checkUser(@RequestBody LoginData loginData)
 	{
-		return userService.getAllUsers();
+		return loginService.isUser(loginData);
 	}
-    @PostMapping("/signup")
-    public String addUser(@RequestBody User user)
-    {
-        return userService.addUser(user);
-    }
-    
-    
 }
