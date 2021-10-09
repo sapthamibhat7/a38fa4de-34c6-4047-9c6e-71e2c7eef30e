@@ -1,8 +1,8 @@
  
 package com.examly.springapp.User;
 
-import java.lang.StackWalker.Option;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -24,13 +24,23 @@ public class UserService {
 
     public User getUser(String email)
     {
-        Optional<User> user=userRepository.findByEmail(email);
+        Optional<User> user=userRepository.findById(email);
         if(user.isPresent()) return user.get();
         return null;
     }
 
-    public void addUser(User user) {
+    public String getUser(Login login)
+    {
+    	User user=getUser(login.getEmail()); 
+    	if(user==null) return "User doesn't exist. Please signup first";
+    	if(user.getPassword().equals(login.getPassword())) return "Login Successful";
+    	return "Password wrong";
+    }
+    
+    public String addUser(User user) {
+    	if(getUser(user.getEmail())!=null) return "User already exists";
 		userRepository.save(user);
+		return "User successfully registered";
 
 	}
 
@@ -39,7 +49,7 @@ public class UserService {
 
 	}
 
-	public void deleteUser(int id) {
-		topicRepository.deleteById(id);
+	public void deleteUser(String email) {
+		userRepository.deleteById(email);
 	}
 }

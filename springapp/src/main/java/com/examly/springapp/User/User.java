@@ -1,6 +1,5 @@
 package com.examly.springapp.User;
 
-import java.lang.annotation.Inherited;
 import javax.persistence.Entity;
 
 import javax.persistence.Id;
@@ -9,10 +8,9 @@ import javax.annotation.processing.Generated;
 @Entity
 public class User {
     @Id
-    @GeneratedValue
-    private int id;
     private String email;
     private String userName;
+    private String role;
     private String password;
     private String phoneNumber;
 
@@ -20,6 +18,8 @@ public class User {
     {
 
     }
+
+    
 
     public User(String email,String userName,String password,String phoneNumber)
     {
@@ -43,6 +43,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getRole() {
+        return this.role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getPassword() {

@@ -1,8 +1,35 @@
 package com.examly.springapp.User;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-public interface UserRepository extends CrudRepository<User,Integer>{
-    Optional<User> findByEmail(String email);
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@CrossOrigin(origins = "*")
+public class UserController{
+	@Autowired
+    private UserService userService;
+
+	
+	@GetMapping("/users")
+	public List<User> getAll()
+	{
+		return userService.getAllUsers();
+	}
+    @PostMapping("/signup")
+    public String addUser(@RequestBody User user)
+    {
+        return userService.addUser(user);
+    }
+    
+    @PostMapping("/login")
+    public String getUser(@RequestBody Login login)
+    {
+    	return userService.getUser(login);
+    }
 }
-
