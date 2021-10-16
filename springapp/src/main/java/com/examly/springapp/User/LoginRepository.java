@@ -5,6 +5,6 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 public interface LoginRepository extends CrudRepository<Login,String>{
-	public Optional<Login> findByUserId(String id);
+	public Optional<Login> findByUserId(String user_id);
 	
 }

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
+import { HomeComponent } from './Components/home/home.component';
 
 const appRoutes:Routes=[
     { path: '',
@@ -23,7 +24,12 @@ const appRoutes:Routes=[
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path:'home',
+    component: HomeComponent,
   }
+
 ];
 
 @NgModule({
@@ -41,7 +47,8 @@ const appRoutes:Routes=[
         AppComponent,
     NavigationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
     ],
     providers: [],
   bootstrap: [AppComponent]

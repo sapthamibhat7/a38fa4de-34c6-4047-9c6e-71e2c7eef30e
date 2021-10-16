@@ -28,14 +28,15 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-
+  ngOnInit() {
+  }
   createForm() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required,Validators.email]],
       password: ['', [Validators.minLength(5),Validators.required]],
       userName: ['', Validators.required],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[6|7|8|9][0-9]*'), Validators.minLength(10), Validators.maxLength(10)]],
-      userType: ['employee', Validators.required],
+      role: ['employee', Validators.required],
       confirmPassword: ['', Validators.required]
     },{validator: this.checkIfMatchingPasswords('password', 'confirmPassword')});
   }
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit {
         }
       },
         err => {
+          console.log(err);
           alert("An error has occured, Please try again !!!");
         });
   }

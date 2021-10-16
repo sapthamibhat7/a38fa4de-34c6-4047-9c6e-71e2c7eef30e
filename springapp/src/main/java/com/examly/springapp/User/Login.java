@@ -14,7 +14,7 @@ public class Login {
 	@Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-	private String id;
+	private String Id;
 	
 	private String password;
 	
@@ -31,6 +31,7 @@ public class Login {
 		this.password=password;
 		this.user=new User("","","","","");
 		this.user.setId(id);
+		this.Id = id;
 	}
 	
 	

@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder) {
     this.createForm();
   }
-
+  ngOnInit() {
+  }
   createForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required,Validators.email]],
@@ -31,6 +32,9 @@ export class LoginComponent implements OnInit {
           this.apiService.storeToken(res.auth_TOKEN, "employee");
           this.router.navigate(['/home']);
           this.error = false;
+        }
+        else{
+          console.log(res);
         }
       },
         err => {
