@@ -21,6 +21,8 @@ export class NavigationComponent implements OnInit {
       }
     }
   }
+  ngOnInit() {
+  }
   logout() {
     this.loggedType = "home";
     this.auth.removeToken();

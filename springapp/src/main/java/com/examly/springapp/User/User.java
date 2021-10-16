@@ -16,7 +16,7 @@ public class User {
     private String userName;
     private String role;
     private String password;
-    private String phoneNumber;
+    private String mobileNumber;
 
     public User()
     {
@@ -37,13 +37,13 @@ public class User {
 
 
 
-	public User(String email,String userName,String role,String password,String phoneNumber)
+	public User(String email,String userName,String role,String password,String mobileNumber)
     {
         this.email=email;
         this.userName=userName;
         this.role=role;
         this.password=password;
-        this.phoneNumber=phoneNumber;
+        this.mobileNumber=mobileNumber;
     }
 
     public String getEmail() {
@@ -78,12 +78,12 @@ public class User {
         this.password = password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getmobileNumber() {
+        return mobileNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setmobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
 

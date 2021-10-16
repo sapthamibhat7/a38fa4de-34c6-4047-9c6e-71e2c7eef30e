@@ -4,8 +4,10 @@ package com.examly.springapp.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
+import java.util.HashMap;
 
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -37,13 +39,20 @@ public class UserService {
     	if(user==null) return null;
     	return user.getId();
     }
-    
-    public String addUser(User user) {
-    	if(getUser(user.getEmail())!=null) return "User already exists";
+
+    @ResponseBody
+    public Map<String, String> addUser(User user) {
+    	if(getUser(user.getEmail())!=null){
+            HashMap<String,String> map = new HashMap<>();
+            map.put("Error","User already exists");
+            return map;
+        }
 		userRepository.save(user);
 		Login login=new Login(user.getId(),user.getPassword());
 		loginService.addLogin(login);
-		return "User successfully registered";
+        HashMap<String,String> map = new HashMap<>();
+        map.put("Success","User successfully registered");
+        return map;
 
 	}
 
