@@ -1,0 +1,104 @@
+<app-navigation> </app-navigation>
+<div class="_center">
+<div class="container" >
+    <div class="row">
+        <div class="offset-2 col-6">
+            <div class="card login shadow p-3 mb-5 bg-white rounded ">
+                <div class="card-body" id="registerBox">
+                    <h2 style="text-align:center">Sign Up</h2>
+                        <br>
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <input class="form-control" type="email" formControlName="email" placeholder="Enter email" id="email" required>
+                        </div>
+                        <div *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid" class="form-group" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('email').hasError('required')">
+                              Email is Required!
+                            </div>
+                            <div *ngIf="registerForm.get('email').hasError('email') && !registerForm.get('email').hasError('required')">
+                              Invalid Email!
+                            </div>
+                        </div>
+
+
+                        <!-- UserName -->
+                        <div class="form-group">
+                            <input class="form-control" formControlName="userName" placeholder="Enter Username" id="username">
+                        </div>
+                        <div *ngIf="registerForm.get('userName').touched && registerForm.get('userName').invalid" class="form-group" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('userName').hasError('required')">Name is Required !</div>
+                            <div *ngIf="registerForm.get('userName').hasError('pattern')">
+                             Enter a valid name!
+                            </div>
+                            </div>
+
+
+
+                        <!-- Mobile Number -->
+                        <div class="form-group">
+                            <input class="form-control" formControlName="mobileNumber" placeholder="Enter Mobile Number" id="mobileNumber"
+                               >
+                        </div>
+                        <div *ngIf="registerForm.get('mobileNumber').touched && registerForm.get('mobileNumber').invalid" class="form-group" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('mobileNumber').hasError('required')">
+                              Mobile Number is Required !
+                            </div>
+                            <div *ngIf="registerForm.get('mobileNumber').hasError('minlength')">
+                              should not be less than 10 digits!
+                            </div>
+                            <div *ngIf="registerForm.get('mobileNumber').hasError('maxlength')">
+                              should not be more than 10 digits!
+                            </div>
+                            <div *ngIf="registerForm.get('mobileNumber').hasError('pattern')">
+                              Invalid mobile number!
+                            </div>
+                            </div>
+
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <input class="form-control" type="password" formControlName="password" id="password" placeholder="Password">
+                        </div>
+                        <div *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid" class="form-group" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('password').hasError('required')" >
+                             Please create your password !
+                            </div>
+                            <div *ngIf="registerForm.get('password').hasError('minlength')">
+                              password should not contain less than 5 characters !
+                            </div>
+                            </div>
+
+
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <input class="form-control" type="password" formControlName="confirmPassword" id="confirmPassword"
+                                placeholder="Confirm Password">
+                        </div>
+                        <div *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched" class="alert alert-danger" >
+                        <div *ngIf="registerForm.get('confirmPassword').hasError('required')">
+                        Please Re-enter your password !
+                        </div>
+                        </div>
+                        <div *ngIf="registerForm.get('confirmPassword').hasError('notEquivalent')" class="alert alert-danger" >
+                        Passwords dont match
+                    </div>
+
+
+                        <!-- Submit Button -->
+                        <div class = text-center>
+                            <input type="submit" [disabled]="!registerForm.valid" class="btn btn-primary align-center" value="Register" id="submitButton">
+                            </div>
+                    </form>
+                            <div class="option" style="text-align:center">Already a user? <a routerLink="/login" id="signinLink" >Login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="form-group" *ngIf="Details" [class.success]='success'>
+    Details are submitted Successfully
+  </div> 

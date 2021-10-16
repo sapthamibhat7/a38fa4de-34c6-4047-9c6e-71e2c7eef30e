@@ -22,7 +22,20 @@
     "@types/core-js": "^2.5.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
+    "ngx-webstorage-service": "latest",
+    "bootstrap": ">=4.3.1",
+    "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
+    "lodash": ">=4.17.13",
+    "lodash.mergewith": ">=4.6.2",
+    "handlebars": ">=4.1.0",
+    "js-yaml": ">=3.13.1",
+    "ws": ">=3.3.1",
+    "tar": ">=2.2.2",
+    "webpack-dev-server": ">=3.1.11",
+    "adm-zip": ">=0.4.11"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.3",

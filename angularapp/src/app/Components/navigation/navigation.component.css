@@ -1,0 +1,12 @@
+.navbar {
+    border-radius: 5;
+    
+    
+  }
+  .log {
+    text-align: right;
+  }
+  .container{
+    background-color: #1b2524;
+    border-radius: 5px;
+  }
