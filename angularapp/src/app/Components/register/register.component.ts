@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../Service/api.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -30,8 +29,6 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
   createForm() {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required,Validators.email]],
