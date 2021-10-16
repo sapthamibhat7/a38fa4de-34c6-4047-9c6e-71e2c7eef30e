@@ -1,27 +1,49 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { SearchDeleteComponent } from './search-delete/search-delete.component';
-import { UserRegistrationService } from './user-registration.service';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { NavigationComponent } from './Components/navigation/navigation.component';
+
+const appRoutes:Routes=[
+    { path: '',
+      redirectTo: '/login',
+      pathMatch: 'full'
+    },
+  {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path:'register',
+    component: RegisterComponent
+  }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegistrationComponent,
-    SearchDeleteComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [UserRegistrationService],
+    imports: [
+        BrowserModule,
+        RouterModule,
+        HttpClientModule,
+        StorageServiceModule,
+        RouterModule.forRoot(appRoutes),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule
+      ],
+    declarations: [
+        AppComponent,
+    NavigationComponent,
+    LoginComponent,
+    RegisterComponent
+    ],
+    providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

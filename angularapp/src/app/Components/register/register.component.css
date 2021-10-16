@@ -1,0 +1,39 @@
+._center {
+  margin: 0;
+  margin-top: 69px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.invalid-input {
+    color: red;
+  }
+  .row{
+    margin-top: 15px;
+  }
+  .offset-2{
+    /* background-color: aqua; */
+    width: 100%; margin: 0 auto;
+}
+
+.btn{
+  /* background-color: #f1b24a !important; */
+  background:linear-gradient(to right,  #f1b24a 0%, #d4942c 100%);
+  color: white !important;
+  font-weight: bold !important;
+  border-color: #b89f5d !important; 
+}
+
+.card-body{
+  background:linear-gradient(to right,  #9dc88d9b 0%, #7094639b 100%);
+}
+.success{
+  background-color: green;
+  color: white;
+  text-align:center;
+  padding: 10px;
+  margin: 0px 30px 50px 30px;
+  border: 1px solid green;
+}

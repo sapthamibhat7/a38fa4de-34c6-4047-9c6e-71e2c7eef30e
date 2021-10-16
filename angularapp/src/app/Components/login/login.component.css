@@ -1,0 +1,45 @@
+
+.card-body{
+    /* width: 200px; */
+    /* background-color: #ffffff; */
+    background:linear-gradient(to right,  #9dc88d9b 0%, #7094639b 100%);
+    /*background: linear-gradient(to right, #d86405 0%, #e6c019 100%);*/
+
+}
+
+.offset-2{
+    /* background-color: aqua; */
+    width: 100%; margin: 0 auto;
+}
+.row{
+    margin-top: 15px;
+}
+
+.btn{
+    /* background-color: #f1b24a !important; */
+    background:linear-gradient(to right,  #f1b24a 0%, #d4942c 100%);
+    color: white !important;
+    font-weight: bold !important;
+    border-color: #b89f5d !important;
+    
+    
+}
+._center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+.card.login{
+    background-color: aqua;
+} 
+.success{
+    background-color: green;
+    color: white;
+    text-align:center;
+    padding: 10px;
+    margin: 0px 30px 50px 30px;
+    border: 1px solid green;
+  }
