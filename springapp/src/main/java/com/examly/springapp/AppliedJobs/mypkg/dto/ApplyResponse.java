@@ -14,7 +14,8 @@ import lombok.ToString;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class ApplyResponse {
+public class ApplyResponse
+{
 	private String name;
 	private String jobname;
 	
@@ -23,4 +24,10 @@ public class ApplyResponse {
 	 this.name=name;
 	 this.jobname=jobname;
  }
+ 
+ 
+ 
+ 
+ 
+ 
 }

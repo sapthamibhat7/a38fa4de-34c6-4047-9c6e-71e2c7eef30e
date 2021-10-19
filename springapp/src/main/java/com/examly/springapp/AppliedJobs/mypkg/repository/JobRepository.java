@@ -12,4 +12,8 @@ public interface JobRepository extends JpaRepository<Job,String> {
 	
   @Query("SELECT new com.example.mypkg.dto.ApplyResponse(b.*, a.name )FROM Job b JOIN b.Employee a ")
    public List<ApplyResponse> getJoinInformation();
+
+
+
+
 }

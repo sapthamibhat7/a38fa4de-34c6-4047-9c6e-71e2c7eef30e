@@ -24,17 +24,21 @@ public class ApplyController {
 	@PostMapping("/jobapply")
 	public Job jobapply(@RequestBody ApplyRequest request)
 	{
+		
 		return jr.save(request.getJob());
+		
 	}
 	
 	@GetMapping("/FindAllAppliedJobs")
-	public List<Job> FindAllAppliedJobs(){
+	public List<Job> FindAllAppliedJobs()
+	{
 		return jr.findAll();
 		
 	}
 	
 	@GetMapping("/getInfo")
-	public List<ApplyResponse> getJoinInformation(){
+	public List<ApplyResponse> getJoinInformation()
+	{
 		return jr.getJoinInformation();
 		
 	}
@@ -44,5 +48,7 @@ public class ApplyController {
 	
 	
 	
+
+
 
 }

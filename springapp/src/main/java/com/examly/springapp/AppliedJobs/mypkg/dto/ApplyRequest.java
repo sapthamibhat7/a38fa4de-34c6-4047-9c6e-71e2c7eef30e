@@ -15,6 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class ApplyRequest {
+	
 	private Job job;
 
 	
